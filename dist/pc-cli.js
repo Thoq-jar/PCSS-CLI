@@ -38,7 +38,7 @@ export const string = fn(value => {
 })
 const pcssUrl =
     "https://raw.githubusercontent.com/Thoq-jar/PCSS/master/.pcss/pcss.min.js"
-const commands = ["version", "about", "info", "help", "new"]
+const commands = ["version ", "about ", "info ", "help ", "new ", "update "]
 const newUsage = `Usage: pcss new { project name }`
 
 function getNpmVersion() {
@@ -57,7 +57,7 @@ function getNpmVersion() {
 async function about() {
   const info = [
     "\n",
-    "PCSS CLI: v1.0.0",
+    "PerfectCSS CLI: v1.5.2",
     `Node: ${process.version}`,
     `Package manager: ${getNpmVersion()}`,
     `Arch: ${process.arch}`,
@@ -130,6 +130,11 @@ async function main() {
   } else if (command === "new" && !projectName) {
     printc(styles.bold, colors.red, newUsage)
     process.exit(1)
+  } else if (command === 'update') {
+    printc(styles.bold, colors.blue, 'Updating...');
+    execSync('npm install -g pc-cli');
+    printc(styles.bold, colors.green, 'Updated to the latest version!');
+    process.exit(0)
   } else {
     printc(
         styles.bold,

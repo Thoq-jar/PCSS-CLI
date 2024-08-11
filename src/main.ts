@@ -22,7 +22,7 @@ function getNpmVersion(): string {
 async function about(): Promise<void> {
   const info: any = [
     '\n',
-    'PCSS CLI: v1.0.0',
+    'PCSS CLI: v1.5.1',
     `Node: ${process.version}`,
     `Package manager: ${getNpmVersion()}`,
     `Arch: ${process.arch}`,
