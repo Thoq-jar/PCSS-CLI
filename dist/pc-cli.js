@@ -57,7 +57,7 @@ function getNpmVersion() {
 async function about() {
   const info = [
     "\n",
-    "PerfectCSS CLI: v1.5.3",
+    "PerfectCSS CLI: v1.5.4",
     `Node: ${process.version}`,
     `Package manager: ${getNpmVersion()}`,
     `Arch: ${process.arch}`,
@@ -132,7 +132,7 @@ async function main() {
     process.exit(1)
   } else if (command === 'update') {
     printc(styles.bold, colors.blue, 'Updating...');
-    execSync('npm install -g pc-cli');
+    execSync('npm install -g pc-cli@latest');
     printc(styles.bold, colors.green, 'Updated to the latest version!');
     process.exit(0)
   } else if (command === 'new' && projectName) {
