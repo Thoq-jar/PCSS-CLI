@@ -3,8 +3,9 @@ import * as path from 'node:path';
 import * as https from 'node:https';
 import { argv } from 'node:process';
 import { execSync } from "node:child_process";
-import * as std from './aqua.std';
 
+// @ts-ignore
+export const colors={reset:"\x1b[0m",red:"\x1b[31m",yellow:"\x1b[33m",blue:"\x1b[34m",green:"\x1b[32m",cyan:"\x1b[36m",magenta:"\x1b[35m",white:"\x1b[37m",black:"\x1b[30m",normal:"\x1b[39m",};export const styles={bold:"\x1b[1m",underline:"\x1b[4m",reverse:"\x1b[7m",normal:"\x1b[22m",};export const fn=(func:Function)=>func;export const imprt=fn((modulePath:string)=>{return import(modulePath)});export const nline=fn(():void=>console.log(""));export const print=fn((msg:string):void=>console.log(`${msg}`));export const printc=fn((style:string,color:string,msg:string):void=>console.log(`${style}${color}${msg}${colors.reset}`));export const string=fn((value:number):string=>{return value.toString()});
 const pcssUrl = 'https://raw.githubusercontent.com/Thoq-jar/PCSS/master/.pcss/pcss.min.js';
 const commands = ['version', 'about', 'info', 'help', 'new'];
 const newUsage = `Usage: pcss new { project name }`;
@@ -39,8 +40,8 @@ async function about(): Promise<void> {
 |  |      |  \`----.----)   |   .----)   |      |  \`----.|  \`----.|  | 
 | _|       \\______|_______/    |_______/        \\______||_______||__| 
 `
-  std.printc(std.styles.normal, std.colors.magenta, logo);
-  info.forEach((sentence: string): any => std.printc(std.styles.normal, std.colors.blue, sentence));
+  printc(styles.normal, colors.magenta, logo);
+  info.forEach((sentence: string): any => printc(styles.normal, colors.blue, sentence));
 }
 
 function downloadFile(url: string, dest: string): Promise<void> {
@@ -90,12 +91,12 @@ async function main(): Promise<void> {
   ) {
     about().then((): void => process.exit(0));
   } else if (command === 'new' && !projectName) {
-    std.printc(std.styles.bold, std.colors.red, newUsage);
+    printc(styles.bold, colors.red, newUsage);
     process.exit(1);
   } else {
-    std.printc(
-      std.styles.bold,
-      std.colors.red,
+    printc(
+      styles.bold,
+      colors.red,
       `Unknown command/usage: ${command}, for help type "pcss help"`
     );
     process.exit(1);
@@ -115,9 +116,9 @@ async function main(): Promise<void> {
   try {
     await downloadFile(pcssUrl, pcssFilePath);
     createIndexHtml(indexHtmlPath);
-    console.log(`Files downloaded and index.html created successfully in ${projectName}.`);
+    print(`Successfully initialized ${projectName}!`);
   } catch (error) {
-    console.error('Error:', error);
+    printc(styles.bold, colors.red, `Error: ${error}`);
   }
 }
 
