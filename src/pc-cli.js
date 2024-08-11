@@ -5,7 +5,6 @@ import * as https from "node:https"
 import { argv } from "node:process"
 import { execSync } from "node:child_process"
 
-// @ts-ignore
 export const colors = {
   reset: "\x1b[0m",
   red: "\x1b[31m",
@@ -18,38 +17,42 @@ export const colors = {
   black: "\x1b[30m",
   normal: "\x1b[39m"
 }
+
 export const styles = {
   bold: "\x1b[1m",
   underline: "\x1b[4m",
   reverse: "\x1b[7m",
   normal: "\x1b[22m"
 }
+
 export const fn = func => func
 export const imprt = fn(modulePath => {
   return import(modulePath)
 })
+
 export const nline = fn(() => console.log(""))
 export const print = fn(msg => console.log(`${msg}`))
 export const printc = fn((style, color, msg) =>
-    console.log(`${style}${color}${msg}${colors.reset}`)
+  console.log(`${style}${color}${msg}${colors.reset}`)
 )
+
 export const string = fn(value => {
   return value.toString()
 })
-const pcssUrl =
-    "https://raw.githubusercontent.com/Thoq-jar/PCSS/master/.pcss/pcss.min.js"
+
+const pcssUrl = "https://raw.githubusercontent.com/Thoq-jar/PCSS/master/.pcss/pcss.min.js"
 const commands = [
   '',
-  "version: Shows this screen,",
-  "about: Shows this screen,",
-  "info: Shows this screen,",
-  "help: Shows this screen,",
-  "new: Creates a new project,",
-  "update: Updates the CLI,",
-  "init: Initializes PCSS in your existing project,"
+  ' version: Shows this screen,',
+  ' about: Shows this screen,',
+  ' info: Shows this screen,',
+  ' help: Shows this screen,',
+  ' new: Creates a new project,',
+  ' update: Updates the CLI,',
+  ' init: Initializes PCSS in your existing project,'
 ];
-const newUsage = `Usage: pcss new { project name }`
 
+const newUsage = `Usage: pcss new { project name }`
 function getNpmVersion() {
   try {
     return (
@@ -66,24 +69,24 @@ function getNpmVersion() {
 async function about() {
   const info = [
     "\n",
-    "PerfectCSS CLI: v1.5.6",
-    `Node: ${process.version}`,
-    `Package manager: ${getNpmVersion()}`,
-    `Arch: ${process.arch}`,
-    `Platform: ${process.platform}`,
+    ' PerfectCSS CLI: v1.5.7',
+    ` Node: ${process.version}`,
+    ` Package manager: ${getNpmVersion()}`,
+    ` Arch: ${process.arch}`,
+    ` Platform: ${process.platform}`,
     '',
-    "Help: ",
-    `Commands: ${commands.map(command => command).join('\n')}`,
+    ' Help: ',
+    ` Commands: ${commands.map(command => command).join('\n')}`,
   ]
 
   const logo = `
-.______     ______     _______.     _______.     ______  __       __
-|   _  \\   /      |   /       |    /       |    /      ||  |     |  |
-|  |_)  | |  ,----'  |   (----\`   |   (----\`   |  ,----'|  |     |  |
-|   ___/  |  |        \\   \\        \\   \\       |  |     |  |     |  |
-|  |      |  \`----.----)   |   .----)   |      |  \`----.|  \`----.|  |
-| _|       \\______|_______/    |_______/        \\______||_______||__|
-`
+  .______     ______     _______.     _______.     ______  __       __
+  |   _  \\   /      |   /       |    /       |    /      ||  |     |  |
+  |  |_)  | |  ,----'  |   (----\`   |   (----\`   |  ,----'|  |     |  |
+  |   ___/  |  |        \\   \\        \\   \\       |  |     |  |     |  |
+  |  |      |  \`----.----)   |   .----)   |      |  \`----.|  \`----.|  |
+  | _|       \\______|_______/    |_______/        \\______||_______||__|
+  `
   printc(styles.normal, colors.magenta, logo)
   info.forEach(sentence => printc(styles.normal, colors.blue, sentence))
 }
@@ -107,7 +110,7 @@ function downloadFile(url, dest) {
         })
   })
 }
-
+const scriptTag = `<script src="./.pcss/pcss.min.js"></script>`
 function createIndexHtml(filePath) {
   const htmlContent = `
 <!DOCTYPE html>
@@ -145,10 +148,10 @@ async function main() {
     printc(styles.bold, colors.green, 'Updated to the latest version!');
     process.exit(0)
   } else if (command === 'new' && projectName) {
-    printc(styles.bold, colors.green, `Creating new project: ${projectName}`);
+    printc(styles.underline, colors.blue, `Creating new project: ${projectName}`);
     createProject(projectName).then(() => process.exit(0));
   } else if (command === 'init') {
-    printc(styles.bold, colors.green, `Installing PerfectCSS to your current project...`);
+    printc(styles.bold, colors.blue, `Installing PerfectCSS to your current project...`);
     initPCSS().then(() => process.exit(0));
   } else {
     printc(
@@ -174,7 +177,7 @@ async function createProject(projectName) {
   try {
     await downloadFile(pcssUrl, pcssFilePath)
     createIndexHtml(path.join(projectDir, "index.html"))
-    print(`Successfully initialized ${projectName}!`)
+    printc(styles.bold, colors.green, `Successfully initialized ${projectName}!`)
   } catch (error) {
     printc(styles.bold, colors.red, `Error: ${error}`)
   }
@@ -189,7 +192,9 @@ async function initPCSS() {
   }
   try {
     await downloadFile(pcssUrl, pcssFilePath)
-    print(`Successfully initialized PCSS in your project!`)
+    printc(styles.bold, colors.green, `Successfully initialized PCSS in your project!`);
+    printc(styles.underline, colors.blue, 'To start using PCSS, add the following script tag to your HTML file:');
+    printc(styles.bold, colors.blue, `${scriptTag}`);
   } catch (error) {
     printc(styles.bold, colors.red, `Error: ${error}`)
   }
