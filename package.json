@@ -9,6 +9,9 @@
     "build": "tsc",
     "qc": "npm run lint"
   },
+  "bin": {
+    "pc-cli": "./dist/pc-cli.js"
+  },
   "keywords": [],
   "author": "Thoq",
   "license": "MIT",

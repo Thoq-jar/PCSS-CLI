@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PCSS-CLI.iml" filepath="$PROJECT_DIR$/PCSS-CLI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PerfectCSS-CLI.iml" filepath="$PROJECT_DIR$/.idea/PerfectCSS-CLI.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outFile": "./dist/pc.js",
+    "outFile": "./dist/pc-cli.js",
     "module": "system",
     "target": "es5",
     "rootDir": "./src",
