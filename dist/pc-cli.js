@@ -135,6 +135,8 @@ async function main() {
     execSync('npm install -g pc-cli');
     printc(styles.bold, colors.green, 'Updated to the latest version!');
     process.exit(0)
+  } else if (command === 'new' && projectName) {
+    printc(styles.bold, colors.green, `Creating new project: ${projectName}`);
   } else {
     printc(
         styles.bold,
@@ -144,7 +146,7 @@ async function main() {
     process.exit(1)
   }
 
-  const projectDir = path.join(__dirname, projectName)
+  const projectDir = path.join(projectName)
   const pcssDir = path.join(projectDir, ".pcss")
   const pcssFilePath = path.join(pcssDir, "pcss.min.js")
   const indexHtmlPath = path.join(projectDir, "index.html")

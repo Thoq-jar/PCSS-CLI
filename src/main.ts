@@ -93,6 +93,8 @@ async function main(): Promise<void> {
   } else if (command === 'new' && !projectName) {
     printc(styles.bold, colors.red, newUsage);
     process.exit(1);
+  } else if (command === 'new' && projectName) {
+    printc(styles.bold, colors.green, `Creating new project: ${projectName}`);
   } else {
     printc(
       styles.bold,
