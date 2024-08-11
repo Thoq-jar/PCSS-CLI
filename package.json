@@ -1,5 +1,5 @@
 {
-  "name": "pcss-cli",
+  "name": "pc-cli",
   "version": "1.0.0",
   "main": "main.ts",
   "type": "module",
