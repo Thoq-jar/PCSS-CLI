@@ -5,5 +5,5 @@ PerfectCSS CLI is a command line interface for PerfectCSS. It allows you to crea
 ## Installation
 
 ```bash
-npm install -g pc-cli
+npm install -g pc-cli@latest
 ```
