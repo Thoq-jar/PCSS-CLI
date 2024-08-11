@@ -1,7 +1,7 @@
 {
   "name": "pc-cli",
-  "version": "1.5.5",
-  "main": "main.ts",
+  "version": "1.5.6",
+  "main": "pc-cli.js",
   "type": "module",
   "scripts": {
     "start": "bun main.ts",
@@ -10,7 +10,7 @@
     "qc": "npm run lint"
   },
   "bin": {
-    "pc-cli": "./dist/pc-cli.js"
+    "pc-cli": "./src/pc-cli.js"
   },
   "keywords": [
     "cli",
