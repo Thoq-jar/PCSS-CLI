@@ -2,8 +2,12 @@
   "name": "pcss-cli",
   "version": "1.0.0",
   "main": "main.ts",
+  "type": "module",
   "scripts": {
-    "start": "bun main.ts"
+    "start": "bun main.ts",
+    "lint": "eslint .",
+    "build": "tsc",
+    "qc": "npm run lint"
   },
   "keywords": [],
   "author": "Thoq",
@@ -15,7 +19,6 @@
   "dependencies": {
     "eslint": "^9.9.0",
     "tsc": "^2.0.4",
-    "typecheck": "^0.1.2",
     "typescript": "^5.5.4"
   }
 }

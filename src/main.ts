@@ -6,6 +6,8 @@ import { execSync } from "node:child_process";
 import * as std from './aqua.std';
 
 const pcssUrl = 'https://raw.githubusercontent.com/Thoq-jar/PCSS/master/.pcss/pcss.min.js';
+const commands = ['version', 'about', 'info', 'help', 'new'];
+const newUsage = `Usage: pcss new { project name }`;
 
 function getNpmVersion(): string {
   try {
@@ -25,7 +27,7 @@ async function about(): Promise<void> {
     `Arch: ${process.arch}`,
     `Platform: ${process.platform}`,
     'Help: ',
-    'Type "pcss new { project name }" to create a new project',
+    `Enter one of these: ${commands.toString()}`,
     'Type "pcss version" to show this message',
   ];
 
@@ -38,7 +40,7 @@ async function about(): Promise<void> {
 | _|       \\______|_______/    |_______/        \\______||_______||__| 
 `
   std.printc(std.styles.normal, std.colors.magenta, logo);
-  info.forEach(sentence => std.printc(std.styles.normal, std.colors.blue, sentence));
+  info.forEach((sentence: string): any => std.printc(std.styles.normal, std.colors.blue, sentence));
 }
 
 function downloadFile(url: string, dest: string): Promise<void> {
@@ -79,8 +81,6 @@ function createIndexHtml(filePath: string): void {
 async function main(): Promise<void> {
   const command: any = argv[2];
   const projectName = argv[3];
-  const commands = ['version', 'about', 'info', 'help', 'new'];
-  const newUsage = `Usage: pcss new { project name }`;
 
   if (
     command === 'version' ||
