@@ -1,0 +1,21 @@
+{
+  "name": "pcss-cli",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "scripts": {
+    "start": "bun main.ts"
+  },
+  "keywords": [],
+  "author": "Thoq",
+  "license": "MIT",
+  "description": "Cli for PCSS css library",
+  "devDependencies": {
+    "@types/node": "^22.2.0"
+  },
+  "dependencies": {
+    "eslint": "^9.9.0",
+    "tsc": "^2.0.4",
+    "typecheck": "^0.1.2",
+    "typescript": "^5.5.4"
+  }
+}
