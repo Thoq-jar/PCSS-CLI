@@ -64,7 +64,7 @@ void printc(const string &style, const string &color, const string &msg) {
 
 void about() {
   vector<string> info = {"\n",
-                         " PerfectCSS CLI: v1.6.2",
+                         " PerfectCSS CLI: v1.6.3",
                          "",
                          " Help: ",
                          " Commands: " + [&]() {

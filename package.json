@@ -1,15 +1,15 @@
 {
   "name": "pc-cli",
-  "version": "1.6.2",
-  "main": "./src/pc-cli.js",
+  "version": "1.6.3",
+  "main": "./pc-cli",
   "type": "module",
   "scripts": {
     "start": "./pc-cli",
     "build": "clang++ -std=c++17 src/main.cc -lcurl -o pc-cli"  
   },
   "bin": {
-    "pc-cli": "./src/pc-cli.js",
-    "pcc": "./src/pc-cli.js"
+    "pc-cli": "./pc-cli",
+    "pcc": "./pc-cli"
   },
   "keywords": [
     "cli",
