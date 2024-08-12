@@ -1,13 +1,10 @@
 {
   "name": "pc-cli",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "main": "pc-cli.js",
   "type": "module",
   "scripts": {
-    "start": "bun main.ts",
-    "lint": "eslint .",
-    "build": "tsc",
-    "qc": "npm run lint"
+    "start": "bun main.ts"
   },
   "bin": {
     "pc-cli": "./src/pc-cli.js"
@@ -21,13 +18,5 @@
   ],
   "author": "Thoq",
   "license": "MIT",
-  "description": "Cli for PerfectCSS css library",
-  "devDependencies": {
-    "@types/node": "^22.2.0"
-  },
-  "dependencies": {
-    "eslint": "^9.9.0",
-    "tsc": "^2.0.4",
-    "typescript": "^5.5.4"
-  }
+  "description": "Cli for PerfectCSS css library"
 }
