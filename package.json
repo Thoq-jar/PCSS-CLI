@@ -1,13 +1,14 @@
 {
   "name": "pc-cli",
-  "version": "1.5.9",
+  "version": "1.6.0",
   "main": "pc-cli.js",
   "type": "module",
   "scripts": {
     "start": "bun main.ts"
   },
   "bin": {
-    "pc-cli": "./src/pc-cli.js"
+    "pc-cli": "./src/pc-cli.js",
+    "pcc": "./src/pc-cli.js"
   },
   "keywords": [
     "cli",
