@@ -7,8 +7,8 @@
     "start": "bun main.ts"
   },
   "bin": {
-    "pc-cli": "./src/pc-cli.js",
-    "pcc": "./src/pc-cli.js"
+    "pc-cli": "./pc-cli.js",
+    "pcc": "./pc-cli.js"
   },
   "keywords": [
     "cli",
