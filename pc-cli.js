@@ -69,7 +69,7 @@ function getNpmVersion() {
 async function about() {
   const info = [
     "\n",
-    ' PerfectCSS CLI: v1.5.7',
+    ' PerfectCSS CLI: v1.6.0',
     ` Node: ${process.version}`,
     ` Package manager: ${getNpmVersion()}`,
     ` Arch: ${process.arch}`,
