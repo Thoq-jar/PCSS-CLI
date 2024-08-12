@@ -1,6 +1,6 @@
 {
   "name": "pc-cli",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "main": "pc-cli.js",
   "type": "module",
   "scripts": {
